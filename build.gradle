@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.diffplug.spotless' version '8.1.0'
 }
 
 group = 'org.example'
@@ -17,4 +18,25 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+spotless {
+    encoding 'UTF-8'
+
+    format 'misc', {
+        target '.gitignore'
+
+        trimTrailingWhitespace()
+        leadingTabsToSpaces(4)
+        endWithNewline()
+    }
+    java {
+        target 'src/main/java/**/*.java', 'src/test/java/**/*.java' // exclude api as they are not our files
+
+        toggleOffOn()
+        removeUnusedImports()
+        endWithNewline()
+        //noinspection GroovyAssignabilityCheck
+        eclipse('4.19')
+    }
 }
