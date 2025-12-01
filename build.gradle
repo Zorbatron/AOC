@@ -31,12 +31,8 @@ spotless {
         endWithNewline()
     }
     java {
-        target 'src/main/java/**/*.java', 'src/test/java/**/*.java' // exclude api as they are not our files
-
         toggleOffOn()
         removeUnusedImports()
         endWithNewline()
-        //noinspection GroovyAssignabilityCheck
-        eclipse('4.19')
     }
 }
