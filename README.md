@@ -1,0 +1,4 @@
+These are my solutions to [Advent of Code](https://adventofcode.com).
+
+2025:
+ - Day 1
